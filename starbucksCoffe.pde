@@ -1,0 +1,112 @@
+class Coffee{
+    float posX, posY;
+    
+    Coffee(float x, float y){
+        this.posX = x;
+        this.posY = y;
+    }
+
+    void draw(){
+        
+        icecup();
+        icecupHolder();
+        logo();
+    }
+
+    void icecup(){
+        //20, -40
+        //20, 30
+        pushMatrix();
+        translate(posX, posY);
+        fill(228, 229, 231);
+
+        //cup_body
+        strokeWeight(5);
+        stroke(84, 34, 25);
+        quad(0, 0, 40, 0, 50, -80, -10, -80);
+
+        //cup_light
+        fill(255);
+        noStroke();
+        quad(2, -2, 5, -2, 0, -80, -8, -80);
+        
+        
+        stroke(84, 34, 25);
+        strokeWeight(5);
+        //cup_lid
+        fill(228, 229, 231);
+        arc(20, -80, 35*2, 35*2, -PI, 0);
+
+        fill(195, 107, 45);
+        rect(-20, -85, 80, 15, 100);
+        popMatrix();
+        
+    }
+
+    void icecupHolder(){
+        pushMatrix();
+        translate(posX, posY);
+        //holder
+        fill(214, 187, 133);
+        strokeWeight(5);
+        stroke(84, 34, 25);
+        quad(-5, -15, 45, -15, 50, -55, -10, -55);
+
+        popMatrix();
+        
+    }
+
+    void hotcup(){
+        //25, -38
+        //10, 20
+        pushMatrix();
+        translate(posX, posY);
+    
+        //cup_body
+        fill(214, 187, 133);
+        strokeWeight(5);
+        stroke(84, 34, 25);
+        quad(0, 0, 50, 0, 60, -70, -10, -70);
+
+        //cup_light
+        fill(255);
+        noStroke();
+        quad(2, -2, 10, -2, 5, -70, -5, -70);
+    
+        stroke(84, 34, 25);
+        strokeWeight(5);
+
+        fill(227, 230, 233);
+        rect(-20, -85, 90, 15, 100);
+        popMatrix();
+        
+    }
+    void hotcupHolder(){
+        pushMatrix();
+        translate(posX, posY);
+        //holder
+        fill(74, 125, 66);
+        strokeWeight(5);
+        stroke(84, 34, 25);
+        quad(-3, -20, 53, -20, 57, -55, -7, -55);
+
+        popMatrix();
+        
+    }
+
+    void logo(){
+        //coffeebean
+        pushMatrix();
+        translate(posX+25, posY-38);
+        fill(84, 34, 25);
+        rotate(radians(-30)); 
+        ellipse(0, 0, 10, 20);
+
+        stroke(0);
+        strokeWeight(3);
+        line(0, -10, 0, 10);
+        popMatrix();
+    }
+}
+    
+    
