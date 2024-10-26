@@ -24,6 +24,9 @@ class Coffee{
         
         icecup();
         icecupHolder();
+<<<<<<< HEAD
+>>>>>>> f729e150e6e4eefb70adf676a3b6d26e79ac7db8
+=======
 >>>>>>> f729e150e6e4eefb70adf676a3b6d26e79ac7db8
         logo();
     }
