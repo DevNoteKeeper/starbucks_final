@@ -10,6 +10,6 @@ void setup() {
 void draw() {
     background(220);
     coffee.draw();
-    animal.rabbit();
-    animal.jump();
+    animal.popo();
+    animal.moving();
 }

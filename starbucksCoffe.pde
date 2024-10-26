@@ -8,14 +8,15 @@ class Coffee{
 
     void draw(){
         
-        icecup();
-        icecupHolder();
+        hotcup();
+        hotcupHolder();
         logo();
     }
 
     void icecup(){
         //20, -40
         //20, 30
+        rectMode(CENTER);
         pushMatrix();
         translate(posX, posY);
         fill(228, 229, 231);
@@ -38,7 +39,7 @@ class Coffee{
         arc(20, -80, 35*2, 35*2, -PI, 0);
 
         fill(195, 107, 45);
-        rect(-20, -85, 80, 15, 100);
+        rect(20, -85, 80, 15, 100);
         popMatrix();
         
     }
@@ -59,6 +60,7 @@ class Coffee{
     void hotcup(){
         //25, -38
         //10, 20
+        rectMode(CENTER);
         pushMatrix();
         translate(posX, posY);
     
@@ -77,7 +79,7 @@ class Coffee{
         strokeWeight(5);
 
         fill(227, 230, 233);
-        rect(-20, -85, 90, 15, 100);
+        rect(25, -75, 90, 15, 100);
         popMatrix();
         
     }

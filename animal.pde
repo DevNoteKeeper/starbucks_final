@@ -3,6 +3,9 @@ class Animal{
     float posX, posY, originalY;
     float maxHeight = 50;
     boolean jumpingUp = true;
+    boolean leftFootUp = true;
+    float leftFootAngle = radians(-15);
+    float rightFootAngle = radians(15);
     
     Animal(float x, float y){
         this.posX = x;
@@ -69,5 +72,66 @@ class Animal{
                 jumpingUp = true;
             }
         }
+    }
+
+    void popo(){
+        rectMode(CENTER);
+        fill(84, 34, 25);
+
+        pushMatrix();
+        translate(posX, posY);
+        noStroke();
+        //left_foot
+        rotate(leftFootAngle);
+        rect(-15, 80, 20, 30, 30);
+        popMatrix();
+
+        pushMatrix();
+        translate(posX, posY);
+        rotate(rightFootAngle);
+        //right_foot
+        rect(15, 80, 20, 30, 30);
+        popMatrix();
+
+        pushMatrix();
+        translate(posX, posY);
+
+        fill(84, 34, 25);
+        //head_deco
+        triangle(-10, -28, 10, -28, 0, -48);
+
+        //body
+        fill(255);
+        rect(0, 40, 70, 80, 30);
+
+        //head
+        fill(200);
+        ellipse(3, 3, 70, 60);
+        fill(255);
+        ellipse(0, 0, 70, 60);
+
+        //eye
+        fill(0);
+        circle(8, -8, 10);
+
+        popMatrix();   
+    }
+
+    void moving(){
+        float angleStep = radians(1);
+        if(leftFootUp){
+            leftFootAngle += angleStep;
+            rightFootAngle -= angleStep;
+            if(leftFootAngle >= radians(10)){
+                leftFootUp = false;
+            }
+        } else{
+            leftFootAngle -= angleStep;
+            rightFootAngle += angleStep;
+            if(leftFootAngle <= radians(-10)){
+                leftFootUp = true;
+            }
+        }
+
     }
 }
