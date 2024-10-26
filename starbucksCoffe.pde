@@ -8,8 +8,8 @@ class Coffee{
 
     void draw(){
         
-        hotcup();
-        hotcupHolder();
+        icecup();
+        icecupHolder();
         logo();
     }
 
@@ -51,7 +51,7 @@ class Coffee{
         fill(214, 187, 133);
         strokeWeight(5);
         stroke(84, 34, 25);
-        quad(-5, -15, 45, -15, 50, -55, -10, -55);
+        quad(-5, -20, 45, -20, 50, -60, -10, -60);
 
         popMatrix();
         
