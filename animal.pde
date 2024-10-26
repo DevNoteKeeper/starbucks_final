@@ -1,19 +1,53 @@
 class Animal{
     
     float posX, posY, originalY;
-    float maxHeight = 50;
+    float maxHeight = 30;
     boolean jumpingUp = true;
     boolean leftFootUp = true;
     float leftFootAngle = radians(-15);
     float rightFootAngle = radians(15);
+
+    boolean isMoving = false;
     
     Animal(float x, float y){
         this.posX = x;
         this.posY = y;
         this.originalY = y;
     }
+    void move(int direction){
+        int moveSpeed = 5;
+        
+        if(direction == LEFT){
+            if(posX > 10){
+                posX -= moveSpeed;
+            }
+        } else if(direction == RIGHT){
+            if(posX < width-10){
+                posX += moveSpeed;
+            }
+            
+        } else if(direction == UP){
+            if(posY > 750){
+                posY -= moveSpeed;
+            }
+            
+        } else if(direction == DOWN){
+            if(posY < 900){
+                posY += moveSpeed;
+            }
+            
+        }
+    }
 
     void rabbit(){
+        drawRabbit();
+        if(!isMoving){
+            rabbitJump();
+        }
+        
+    }
+
+    void drawRabbit(){
         pushMatrix();
         translate(posX, posY);
         noStroke();
@@ -75,6 +109,11 @@ class Animal{
     }
 
     void popo(){
+        drawPopo();
+        popoMoveLegs();
+    }
+
+    void drawPopo(){
         rectMode(CENTER);
         fill(84, 34, 25);
 
