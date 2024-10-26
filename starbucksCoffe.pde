@@ -6,7 +6,7 @@ class Coffee{
         this.posY = y;
     }
 
-<<<<<<< HEAD
+
     void draw(boolean hot, boolean holder){
         if(hot) {
           hotcup();
@@ -19,15 +19,6 @@ class Coffee{
             icecupHolder();
           }
         }
-=======
-    void draw(){
-        
-        icecup();
-        icecupHolder();
-<<<<<<< HEAD
->>>>>>> f729e150e6e4eefb70adf676a3b6d26e79ac7db8
-=======
->>>>>>> f729e150e6e4eefb70adf676a3b6d26e79ac7db8
         logo();
     }
     

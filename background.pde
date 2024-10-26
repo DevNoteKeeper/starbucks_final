@@ -2,10 +2,7 @@ class Background {
   float hour = 0;
   float timeSpeed = 0.05; //control speed of time
   int hourDirection = 1;
-<<<<<<< HEAD
   int closeTime = 12;
-=======
->>>>>>> f729e150e6e4eefb70adf676a3b6d26e79ac7db8
 
   PImage starbucksLogo;
   PImage starbucksInside;
@@ -29,26 +26,16 @@ class Background {
     // drawBackground(); 
     // imageMode(CORNER);
     // image(starbucksInside, 0, 300, 1000, 500, 50);
-<<<<<<< HEAD
     drawDayTime();
-=======
->>>>>>> f729e150e6e4eefb70adf676a3b6d26e79ac7db8
     table();
     door();
     sign();
     logo();
-    
-<<<<<<< HEAD
     tick();
     
   }
 
   void tick() {
-=======
-  }
-
-  void updatedTime() {
->>>>>>> f729e150e6e4eefb70adf676a3b6d26e79ac7db8
     hour += hourDirection * timeSpeed;
     if (hour <= 6) {
       hourDirection = 1;
@@ -57,21 +44,13 @@ class Background {
     }
   }
   
-<<<<<<< HEAD
   void drawDayTime() {
-=======
-  void drawBackground() {
->>>>>>> f729e150e6e4eefb70adf676a3b6d26e79ac7db8
     float transition = map(hour, 6, 18, 0, 1); 
     transition = constrain(transition, 0, 1);
     
     color nightColor = color(34, 40, 92);  
     color dayColor = color(92, 197, 250); 
-    color skyColor = lerpColor(dayColor, nightColor, transition);  
-<<<<<<< HEAD
-    background(skyColor);  
-=======
-    
+    color skyColor = lerpColor(dayColor, nightColor, transition);      
     background(skyColor);
   
 
@@ -88,8 +67,6 @@ class Background {
     rect(700, 250, 150, 400); 
     rect(700, 250, 150, 500); 
   
-    
->>>>>>> f729e150e6e4eefb70adf676a3b6d26e79ac7db8
   }
 
   void sign(){
@@ -206,12 +183,6 @@ class Background {
 
 
   void toggleStatus(float x, float y){
-    //open&close
-    //boolean isOpen
-<<<<<<< HEAD
-    
-=======
->>>>>>> f729e150e6e4eefb70adf676a3b6d26e79ac7db8
     pushMatrix();
     translate(x, y);
 
@@ -223,19 +194,11 @@ class Background {
     rect(0,0,110,50);
 
     //text "open" on the sign
-<<<<<<< HEAD
     isOpen = hour < closeTime;
     if(isOpen){
       status = "OPEN";
     }else{
       status = "CLOSED";
-=======
-    
-    if(isOpen){
-      status = "OPEN";
-    }else{
-      status = "CLOSE";
->>>>>>> f729e150e6e4eefb70adf676a3b6d26e79ac7db8
     }
     
     fill(0);
