@@ -6,12 +6,30 @@ class Coffee{
         this.posY = y;
     }
 
+<<<<<<< HEAD
+    void draw(boolean hot, boolean holder){
+        if(hot) {
+          hotcup();
+          if(holder) {
+            hotcupHolder();
+          }
+        }else {
+          icecup();
+          if(holder) {
+            icecupHolder();
+          }
+        }
+=======
     void draw(){
         
-        hotcup();
-        hotcupHolder();
+        icecup();
+        icecupHolder();
+>>>>>>> f729e150e6e4eefb70adf676a3b6d26e79ac7db8
         logo();
     }
+    
+    
+    
 
     void icecup(){
         //20, -40
@@ -51,7 +69,7 @@ class Coffee{
         fill(214, 187, 133);
         strokeWeight(5);
         stroke(84, 34, 25);
-        quad(-5, -15, 45, -15, 50, -55, -10, -55);
+        quad(-5, -20, 45, -20, 50, -60, -10, -60);
 
         popMatrix();
         
