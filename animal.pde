@@ -59,7 +59,7 @@ class Animal{
 
     }
 
-    void jump(){
+    void rabbitJump(){
         if(jumpingUp){
             posY-=2;
             if(posY <= originalY - maxHeight){
@@ -117,7 +117,7 @@ class Animal{
         popMatrix();   
     }
 
-    void moving(){
+    void popoMoveLegs(){
         float angleStep = radians(1);
         if(leftFootUp){
             leftFootAngle += angleStep;
