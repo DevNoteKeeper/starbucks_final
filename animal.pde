@@ -1,19 +1,83 @@
 class Animal{
     
-    float posX, posY, originalY;
+    float posX, posY, originalY,yLimit;
     float maxHeight = 30;
     boolean jumpingUp = true;
     boolean leftFootUp = true;
+    
+    boolean isRabbit;
+    boolean stationary;
+    
     float leftFootAngle = radians(-15);
     float rightFootAngle = radians(15);
 
     boolean isMoving = false;
     
-    Animal(float x, float y){
+    boolean moveLeft = false;
+    boolean moveRight = false;
+    boolean moveUp = false;
+    boolean moveDown = false;
+    
+    
+    Animal(float x, float y, float ylimit, boolean rabbit, boolean stationary){
         this.posX = x;
         this.posY = y;
+        this.yLimit = ylimit;
+        this.isRabbit = rabbit;
         this.originalY = y;
+        this.stationary = stationary;
     }
+    
+    float getY() {
+      return posY;
+    }
+    
+    float getX() {
+      return posX;
+    }
+      
+    
+    
+    
+    void draw() {
+      if(isRabbit) {
+        rabbit();
+      }else {
+        popo();
+      }
+      if(!stationary) {
+        updatePosition();
+      }
+    }
+    
+    
+    void updatePosition() {
+      if(moveLeft) move(LEFT);
+      if(moveRight) move(RIGHT);
+      if(moveUp) move(UP);
+      if(moveDown) move(DOWN);
+    }
+    
+    void handleKeyPressed(int kcode) {
+      if (kcode == LEFT) moveLeft = true;
+      if (kcode == RIGHT) moveRight = true;
+      if (kcode == UP) moveUp = true;
+      if (kcode == DOWN) moveDown = true;
+      isMoving = true;
+    }
+    
+    void handleKeyReleased(int kcode) {
+      if (kcode == LEFT) moveLeft = false;
+      if (kcode == RIGHT) moveRight = false;
+      if (kcode == UP) moveUp = false;
+      if (kcode == DOWN) moveDown = false;
+      if(!(moveLeft&&moveRight&&moveUp&&moveDown)){
+        isMoving = false;
+      }
+    }
+    
+    
+    
     void move(int direction){
         int moveSpeed = 5;
         
@@ -21,18 +85,21 @@ class Animal{
             if(posX > 10){
                 posX -= moveSpeed;
             }
-        } else if(direction == RIGHT){
+        }
+        if(direction == RIGHT){
             if(posX < width-10){
                 posX += moveSpeed;
             }
             
-        } else if(direction == UP){
-            if(posY > 750){
+        }
+        if(direction == UP){
+            if(posY > yLimit){
                 posY -= moveSpeed;
             }
             
-        } else if(direction == DOWN){
-            if(posY < 900){
+        }
+        if(direction == DOWN){
+            if(posY < 950){
                 posY += moveSpeed;
             }
             
@@ -41,10 +108,10 @@ class Animal{
 
     void rabbit(){
         drawRabbit();
-        if(!isMoving){
-            rabbitJump();
-        }
-        
+        //if(!isMoving) {
+        //  rabbitJump();
+        //}
+               
     }
 
     void drawRabbit(){

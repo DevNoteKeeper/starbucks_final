@@ -22,7 +22,10 @@ class Coffee{
         logo();
     }
     
-    
+    void changePosition(float x, float y) {
+      posX = x;
+      posY = y;
+    }
     
 
     void icecup(){
