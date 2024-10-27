@@ -1,6 +1,6 @@
 class Animal{
     
-    float posX, posY, originalY,yLimit;
+    float posX, posY,yLimit;
     float maxHeight = 30;
     boolean jumpingUp = true;
     boolean leftFootUp = true;
@@ -24,7 +24,6 @@ class Animal{
         this.posY = y;
         this.yLimit = ylimit;
         this.isRabbit = rabbit;
-        this.originalY = y;
         this.stationary = stationary;
     }
     
@@ -36,9 +35,6 @@ class Animal{
       return posX;
     }
       
-    
-    
-    
     void draw() {
       if(isRabbit) {
         rabbit();
@@ -107,11 +103,7 @@ class Animal{
     }
 
     void rabbit(){
-        drawRabbit();
-        //if(!isMoving) {
-        //  rabbitJump();
-        //}
-               
+        drawRabbit();         
     }
 
     void drawRabbit(){
@@ -160,24 +152,12 @@ class Animal{
 
     }
 
-    void rabbitJump(){
-        if(jumpingUp){
-            posY-=2;
-            if(posY <= originalY - maxHeight){
-                jumpingUp = false;
-            }
-        }else {
-            posY+=2;
-            if(posY >= originalY){
-                posY = originalY;
-                jumpingUp = true;
-            }
-        }
-    }
-
     void popo(){
         drawPopo();
-        popoMoveLegs();
+        if(isMoving){
+            popoMoveLegs();
+        }
+        
     }
 
     void drawPopo(){
