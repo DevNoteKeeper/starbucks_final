@@ -17,8 +17,11 @@ void setup() {
 
 void draw() {
   background(180);
-  inside.draw();
   statusControl.updatedTime();
+  // inside.draw();
+  background.draw();
+  animal.popo();
+  
 }
 
 

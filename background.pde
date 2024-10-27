@@ -26,47 +26,48 @@ class Background {
     // drawBackground(); 
     // imageMode(CORNER);
     // image(starbucksInside, 0, 300, 1000, 500, 50);
-    drawDayTime();
+    road();
     table();
     door();
     sign();
     logo();
-    tick();
+    // tick();
     
   }
+  void road(){
+    fill(220);
+    rectMode(CORNER);
+    rect(0, 800, 1000, 200);
+  }
 
-  void tick() {
-    hour += hourDirection * timeSpeed;
-    if (hour <= 6) {
-      hourDirection = 1;
-    } else if (hour >= 18) {
-      hourDirection = -1;
+  // void tick() {
+  //   hour += hourDirection * timeSpeed;
+  //   if (hour <= 6) {
+  //     hourDirection = 1;
+  //   } else if (hour >= 18) {
+  //     hourDirection = -1;
+  //   }
+  // }
+  
+  void drawDayTime(float currentTime) {
+    color skyColor;
+    color dawnColor = color(173, 216, 230);
+    color dayColor = color(92, 197, 250);
+    color nightColor = color(34, 40, 92); 
+
+    if(currentTime >=8 && currentTime <= 12){
+      float transition = map(currentTime, 8, 12, 0, 1);
+      skyColor = lerpColor(dawnColor, dayColor, transition);
+    } else if(currentTime > 12 && currentTime <= 18){
+      skyColor = dayColor;
+    } else if(currentTime > 18 && currentTime <= 24){
+      float transition = map(currentTime, 18, 24, 0, 1);
+      skyColor = lerpColor(dayColor, nightColor, transition);
+    } else{
+      float transition = map(currentTime, 0, 8, 0, 1);
+      skyColor = lerpColor(nightColor, dawnColor, transition);
     }
-  }
-  
-  void drawDayTime() {
-    float transition = map(hour, 6, 18, 0, 1); 
-    transition = constrain(transition, 0, 1);
-    
-    color nightColor = color(34, 40, 92);  
-    color dayColor = color(92, 197, 250); 
-    color skyColor = lerpColor(dayColor, nightColor, transition);      
-    background(skyColor);
-  
-
-    
-    //light blue glass window and door
-    color glassDay = color(92, 197, 250);   
-    color glassNight = color(34, 40, 92);  
-    color glassColor = lerpColor(glassDay, glassNight, transition);
-    fill(glassColor);
-    rect(10,250,980,500); //window
-    
-    //draw the door
-    fill(glassColor);
-    rect(700, 250, 150, 400); 
-    rect(700, 250, 150, 500); 
-  
+    background(skyColor);  
   }
 
   void sign(){
@@ -228,10 +229,5 @@ class Background {
 
       popMatrix();
     
-    // //draw table 
-    // fill(80);
-    // rect(10,450,690,40); //table top
-    // rect(10,490,50,150); //left leg
-    // rect(650,490,50,150); //right leg
   }
 }
