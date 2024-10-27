@@ -8,9 +8,11 @@ boolean isInside = false;
 void setup() {
    size(1000, 1000);
    animals = new Animal[2];
-   animals[0] = new Animal(0, height - 100, 750, true, false);  // rabbit
-   animals[1] = new Animal(0, height - 100, 750, false, false); // popo
+   for(int i = 0;i < 2;i++) {
+        animals[i] = new Animal(0, height - 100, 750, i==0, false);  // rabbit when i==0, popo when i == 1
 
+   }
+  
    selectedAnimal = animals[int(random(0, animals.length))];
    background = new Background();
    statusControl = new StatusControl(background);
