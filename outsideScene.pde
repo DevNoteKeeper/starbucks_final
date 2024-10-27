@@ -5,8 +5,8 @@ class OutsideScene {
   OutsideScene (Animal ani, Background bg) {
       animal = ani;
       animal.posX = 0;
-    animal.posY = height-100; 
-    animal.yLimit = 750;
+      animal.posY = height-100; 
+      animal.yLimit = 750;
       background = bg;
 
   }

@@ -1,12 +1,12 @@
 class Animal{
     
-    float posX, posY,yLimit;
+    float posX, posY,yLimit; // yLimit is the maximum height the animal can walk too, it is different in outside and inside scene
     float maxHeight = 30;
     boolean jumpingUp = true;
     boolean leftFootUp = true;
     
     boolean isRabbit;
-    boolean stationary;
+    boolean stationary; // stationary or moveable by player
     
     float leftFootAngle = radians(-15);
     float rightFootAngle = radians(15);
