@@ -1,6 +1,6 @@
-
 class InsideScene {
   Animal cashier;
+  Animal customer;
   
   int menuX = 50;
   int menuY = 25;
@@ -29,7 +29,10 @@ class InsideScene {
   
   
   InsideScene() {
-    cashier = new Animal(2*width/3 - 150, height/3-40);
+    customer = new Animal(width/2, height-100, 600, true, false);
+    
+    
+    cashier = new Animal(2*width/3 - 150, height/3-40, 0,false, true);
     hotbutton = new Button(menuX+20, menuY+20, menuWidth - 40, 40, "Hot drink", color(255,0,0));
     coldbutton = new Button(menuX+20, menuY+80, menuWidth - 40, 40, "Cold drink", color(255,0,0));
     holderbutton = new Button(menuX+20, menuY+140, menuWidth - 40, 40, "Include holder", color(150, 200, 250));
@@ -46,8 +49,13 @@ class InsideScene {
     starbucksLogo = loadImage("starbucksLogo.png");
   }
   
+  void restart() {
+    customer = new Animal(width/2, height-100, 600, true, false);
+  }
+  
   void draw() {
-    cashier.popo();
+    cashier.draw();
+    
     drawCounter();
     drawMenu();
     
@@ -62,6 +70,7 @@ class InsideScene {
     propcoldholder.draw(false,true);
     
     drawOrder();
+    customer.draw();
   }
   
   void drawCounter() {
@@ -81,10 +90,15 @@ class InsideScene {
   
   void drawOrder() {
     if(ordered) {
+      coffee.changePosition(customer.getX()+15, customer.getY()+30);
       coffee.draw(hot,holder);
     }
     
 
+  }
+  
+  boolean hasLeft() {
+    return customer.getY() > 940;
   }
 
   void handleMouseClick(float xMouse, float yMouse) {
@@ -111,6 +125,12 @@ class InsideScene {
   }
 
 
-  
+  void keyPressed() {
+      customer.handleKeyPressed(keyCode);
+  }
+
+  void keyReleased() {
+    customer.handleKeyReleased(keyCode);
+  }
   
 }

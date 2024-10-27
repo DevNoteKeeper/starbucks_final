@@ -1,6 +1,6 @@
 class Background {
   float hour = 0;
-  float timeSpeed = 0.05; //control speed of time
+  float timeSpeed = 0.02; //control speed of time
   int hourDirection = 1;
   int closeTime = 12;
 
