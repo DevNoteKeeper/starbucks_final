@@ -204,7 +204,7 @@ class Animal{
     }
 
     void popoMoveLegs(){
-        float angleStep = radians(1);
+        float angleStep = radians(2);
         if(leftFootUp){
             leftFootAngle += angleStep;
             rightFootAngle -= angleStep;
