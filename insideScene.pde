@@ -28,8 +28,9 @@ class InsideScene {
   
   
   
-  InsideScene() {
-    customer = new Animal(width/2, height-100, 600, true, false);
+  InsideScene(Animal ani) {
+    customer = ani;
+
     
     
     cashier = new Animal(2*width/3 - 150, height/3-40, 0,false, true);
@@ -49,8 +50,11 @@ class InsideScene {
     starbucksLogo = loadImage("starbucksLogo.png");
   }
   
-  void restart() {
-    customer = new Animal(width/2, height-100, 600, true, false);
+  void restart(Animal ani) {
+    customer = ani;
+    customer.posX = width/2;
+    customer.posY = height-100;
+    customer.yLimit = 600;
   }
   
   void draw() {
@@ -98,7 +102,11 @@ class InsideScene {
   }
   
   boolean hasLeft() {
-    return customer.getY() > 940;
+    if(customer.getY() > 940){
+      ordered = false;
+      return true;
+    }
+    return false;
   }
 
   void handleMouseClick(float xMouse, float yMouse) {

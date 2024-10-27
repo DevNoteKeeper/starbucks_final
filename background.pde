@@ -10,6 +10,7 @@ class Background {
   PFont sodoSemiB;
   String status;
   boolean isOpen;
+  float currentTime;
 
   Background(){
     starbucksLogo = loadImage("starbucksLogo.png");
@@ -22,38 +23,25 @@ class Background {
 
 
   void draw() {
-    // updatedTime();
-    // drawBackground(); 
-    // imageMode(CORNER);
-    // image(starbucksInside, 0, 300, 1000, 500, 50);
     road();
     table();
     door();
     sign();
-    logo();
-    // tick();
-    
+    logo();    
   }
+
   void road(){
     fill(220);
     rectMode(CORNER);
     rect(0, 800, 1000, 200);
   }
-
-  // void tick() {
-  //   hour += hourDirection * timeSpeed;
-  //   if (hour <= 6) {
-  //     hourDirection = 1;
-  //   } else if (hour >= 18) {
-  //     hourDirection = -1;
-  //   }
-  // }
   
-  void drawDayTime(float currentTime) {
+  void drawDayTime(float time) {
     color skyColor;
     color dawnColor = color(173, 216, 230);
     color dayColor = color(92, 197, 250);
     color nightColor = color(34, 40, 92); 
+    currentTime = time;
 
     if(currentTime >=8 && currentTime <= 12){
       float transition = map(currentTime, 8, 12, 0, 1);
@@ -160,7 +148,7 @@ class Background {
     strokeWeight(10);
     line(250, 30, 250, 400);
 
-    toggleStatus(50, 100);
+    toggleStatus(50, 100, currentTime);
 
     popMatrix();
 
@@ -183,7 +171,7 @@ class Background {
 
 
 
-  void toggleStatus(float x, float y){
+  void toggleStatus(float x, float y, float currentTime){
     pushMatrix();
     translate(x, y);
 
@@ -195,8 +183,7 @@ class Background {
     rect(0,0,110,50);
 
     //text "open" on the sign
-    isOpen = hour < closeTime;
-    if(isOpen){
+    if(currentTime>=8 && currentTime <= 20){
       status = "OPEN";
     }else{
       status = "CLOSED";

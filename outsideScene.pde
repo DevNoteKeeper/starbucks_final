@@ -2,16 +2,24 @@ class OutsideScene {
   Background background;
   Animal animal;
   
-  OutsideScene () {
-      animal = new Animal(0, height-100,750, true, false);
-      background = new Background();
+  OutsideScene (Animal ani, Background bg) {
+      animal = ani;
+      animal.posX = 0;
+    animal.posY = height-100; 
+    animal.yLimit = 750;
+      background = bg;
+
   }
   
-  void restart() {
-    animal = new Animal(0, height-100,750, true, false);
+  void restart(Animal ani) {
+    animal = ani;
+    animal.posX = 0;
+    animal.posY = height-100; 
+    animal.yLimit = 750;
   }
   
   void draw() {
+    
     background.draw();
     animal.draw();
   }

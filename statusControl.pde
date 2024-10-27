@@ -16,7 +16,6 @@ class StatusControl{
         }
         checkIsOpen();
         background.drawDayTime(currentTime);
-        drawTime();
         
     }
 
@@ -30,8 +29,4 @@ class StatusControl{
         }
     }
 
-    void drawTime(){
-        textSize(30);
-        text(nf(currentTime,0, 1), width/2, height/2);
-    }
 }

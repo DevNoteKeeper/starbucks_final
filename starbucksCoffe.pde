@@ -31,8 +31,6 @@ class Coffee{
     
 
     void icecup(){
-        //20, -40
-        //20, 30
         rectMode(CENTER);
         pushMatrix();
         translate(posX, posY);
@@ -75,8 +73,6 @@ class Coffee{
     }
 
     void hotcup(){
-        //25, -38
-        //10, 20
         rectMode(CENTER);
         pushMatrix();
         translate(posX, posY);
