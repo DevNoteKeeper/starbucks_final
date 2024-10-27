@@ -13,13 +13,15 @@ class Coffee{
           if(holder) {
             hotcupHolder();
           }
+          logo(25, -38, 10, 20);
         }else {
           icecup();
           if(holder) {
             icecupHolder();
           }
+          logo(20, -40, 20, 30);
         }
-        logo();
+        
     }
     
     void changePosition(float x, float y) {
@@ -111,13 +113,13 @@ class Coffee{
         
     }
 
-    void logo(){
+    void logo(int x, int y, int w, int h){
         //coffeebean
         pushMatrix();
-        translate(posX+25, posY-38);
+        translate(posX+x, posY+y);
         fill(84, 34, 25);
         rotate(radians(-30)); 
-        ellipse(0, 0, 10, 20);
+        ellipse(0, 0, w, h);
 
         stroke(0);
         strokeWeight(3);
