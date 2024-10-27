@@ -15,7 +15,7 @@ class StatusControl{
             currentTime = 0;
         }
         checkIsOpen();
-        background.drawDayTime(currentTime);
+        background.updatedColor(currentTime);
         
     }
 

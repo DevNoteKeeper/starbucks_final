@@ -1,11 +1,5 @@
 class Background {
-  float hour = 0;
-  float timeSpeed = 0.02; //control speed of time
-  int hourDirection = 1;
-  int closeTime = 12;
-
   PImage starbucksLogo;
-  PImage starbucksInside;
   PFont sodoBlack;
   PFont sodoSemiB;
   String status;
@@ -14,7 +8,6 @@ class Background {
 
   Background(){
     starbucksLogo = loadImage("starbucksLogo.png");
-    starbucksInside = loadImage("starbucksInside.jpeg");
     sodoBlack = createFont("sodo-sans.ttf", 45);
     sodoSemiB = createFont("sodo-sans-9.ttf", 30);
     status = "OPEN";
@@ -36,7 +29,7 @@ class Background {
     rect(0, 800, 1000, 200);
   }
   
-  void drawDayTime(float time) {
+  void updatedColor(float time) {
     color skyColor;
     color dawnColor = color(173, 216, 230);
     color dayColor = color(92, 197, 250);
