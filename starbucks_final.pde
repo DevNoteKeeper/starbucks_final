@@ -2,6 +2,8 @@ Coffee coffee;
 Animal animal;
 Background background;
 InsideScene inside;
+StatusControl statusControl;
+
 void setup() {
    size(1000, 1000);
    // background(5);
@@ -9,12 +11,14 @@ void setup() {
    animal = new Animal(300, 300);
    background = new Background();
    inside = new InsideScene();
+   statusControl = new StatusControl(background);
 }
 
 
 void draw() {
   background(180);
   inside.draw();
+  statusControl.updatedTime();
 }
 
 
