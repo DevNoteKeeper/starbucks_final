@@ -141,7 +141,7 @@ class Background {
     strokeWeight(10);
     line(250, 30, 250, 400);
 
-    toggleStatus(50, 100, currentTime);
+    toggleStatus(50, 100);
 
     popMatrix();
 
@@ -164,7 +164,7 @@ class Background {
 
 
 
-  void toggleStatus(float x, float y, float currentTime){
+  void toggleStatus(float x, float y){
     pushMatrix();
     translate(x, y);
 
@@ -176,7 +176,7 @@ class Background {
     rect(0,0,110,50);
 
     //text "open" on the sign
-    if(currentTime>=8 && currentTime <= 20){
+    if(isOpen){
       status = "OPEN";
     }else{
       status = "CLOSED";
