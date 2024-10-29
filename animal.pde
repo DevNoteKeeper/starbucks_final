@@ -46,7 +46,7 @@ class Animal{
       }
     }
     
-    
+    // use the arrow keys to move your creature
     void updatePosition() {
       if(moveLeft) move(LEFT);
       if(moveRight) move(RIGHT);
@@ -73,7 +73,7 @@ class Animal{
     }
     
     
-    
+    // limiting the creature's movement range
     void move(int direction){
         int moveSpeed = 5;
         
@@ -154,6 +154,7 @@ class Animal{
 
     void popo(){
         drawPopo();
+        //the legs move only when popo moves
         if(isMoving){
             popoMoveLegs();
         }

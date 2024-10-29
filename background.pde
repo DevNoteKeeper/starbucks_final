@@ -29,6 +29,7 @@ class Background {
     rect(0, 800, 1000, 200);
   }
   
+  //background color change depending on time
   void updatedColor(float time) {
     color skyColor;
     color dawnColor = color(173, 216, 230);

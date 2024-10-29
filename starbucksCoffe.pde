@@ -13,12 +13,14 @@ class Coffee{
           if(holder) {
             hotcupHolder();
           }
+          //logo size for hotcup
           logo(25, -38, 10, 20);
         }else {
           icecup();
           if(holder) {
             icecupHolder();
           }
+          //logo size for icecup
           logo(20, -40, 20, 30);
         }
         

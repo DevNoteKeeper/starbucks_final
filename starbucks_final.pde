@@ -10,13 +10,11 @@ void setup() {
    animals = new Animal[2];
    for(int i = 0;i < 2;i++) {
         animals[i] = new Animal(0, height - 100, 750, i==0, false);  // rabbit when i==0, popo when i == 1
-
    }
   
    selectedAnimal = animals[int(random(0, animals.length))];
    background = new Background();
    statusControl = new StatusControl(background);
-
    outside = new OutsideScene(selectedAnimal, background);
    inside = new InsideScene(selectedAnimal);
 }
@@ -32,6 +30,8 @@ void draw() {
   }
   if(isInside && inside.hasLeft()) {
     isInside = false;
+
+    //give new random creature
     selectedAnimal = animals[int(random(0, animals.length))];
     inside.restart(selectedAnimal);
     outside.restart(selectedAnimal);
