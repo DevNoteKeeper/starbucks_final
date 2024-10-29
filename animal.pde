@@ -2,7 +2,6 @@ class Animal{
     
     float posX, posY,yLimit; // yLimit is the maximum height the animal can walk too, it is different in outside and inside scene
     float maxHeight = 30;
-    boolean jumpingUp = true;
     boolean leftFootUp = true;
     
     boolean isRabbit;
@@ -78,24 +77,24 @@ class Animal{
         int moveSpeed = 5;
         
         if(direction == LEFT){
-            if(posX > 10){
+            if(posX > 10){ //to not move off the left side of the screen)
                 posX -= moveSpeed;
             }
         }
         if(direction == RIGHT){
-            if(posX < width-10){
+            if(posX < width-10){ //to not move off the right side of the screen
                 posX += moveSpeed;
             }
             
         }
         if(direction == UP){
-            if(posY > yLimit){
+            if(posY > yLimit){ //to not move above yLimit
                 posY -= moveSpeed;
             }
             
         }
         if(direction == DOWN){
-            if(posY < 950){
+            if(posY < 950){ //to not move off the down side of the screen
                 posY += moveSpeed;
             }
             

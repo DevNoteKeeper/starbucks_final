@@ -15,7 +15,7 @@ class InsideScene {
   Button holderbutton;
   Button orderbutton;
   
-  Coffee coffee;
+  Coffee coffee; //the coffee given to the customer after ordering
   
   Coffee prophot;
   Coffee propcold;
@@ -102,7 +102,7 @@ class InsideScene {
   }
   
   boolean hasLeft() {
-    if(customer.getY() > 940){
+    if(customer.getY() > 940){ //if the customer is at the bottom, then he leaves the store
       ordered = false;
       return true;
     }
@@ -121,10 +121,10 @@ class InsideScene {
     }
     
     if (holderbutton.isMouseOverButton(xMouse, yMouse)) {
-      holderbutton.setPressed(!holderbutton.getPressed());
+      holderbutton.setPressed(!holderbutton.getPressed()); //switch the button from pressed to not pressed
     }
     
-    if (orderbutton.isMouseOverButton(xMouse, yMouse)) {
+    if (orderbutton.isMouseOverButton(xMouse, yMouse)) { //set hot and holder to know which coffee to draw
       hot = hotbutton.getPressed();
       holder = holderbutton.getPressed();
       ordered = true;

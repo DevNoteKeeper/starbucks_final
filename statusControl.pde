@@ -1,4 +1,4 @@
-class StatusControl{
+class StatusControl{ //updates the time and checks if the store is open
     Background background;
     boolean isOpen;
     float currentTime;
@@ -9,7 +9,7 @@ class StatusControl{
         currentTime = 8;
     }
 
-    void updatedTime(){
+    void updatedTime(){ //for background
         //like real time, it works 0 to 24
         currentTime += 0.01;
         if(currentTime > 24){
@@ -21,7 +21,7 @@ class StatusControl{
         
     }
 
-    void checkIsOpen(){
+    void checkIsOpen(){ 
         //changes to true or false depending on cafe operating hours
         if(currentTime >=8 && currentTime <=20 ){
             background.isOpen = true;

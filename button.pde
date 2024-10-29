@@ -1,10 +1,10 @@
 class Button {
     float x;
     float y;
-    float w;
-    float h;
+    float w; //width
+    float h; //height
     String text;
-    color pressedcolor;
+    color pressedcolor; //color of the button after pressed
     boolean isPressed = false;
 
     PFont sodoBlack;
@@ -21,10 +21,10 @@ class Button {
 
 
     boolean getPressed() {
-        return isPressed;
+        return isPressed; //return if the button has been pressed
     }
     void setPressed(boolean newPressed) {
-        isPressed = newPressed;
+        isPressed = newPressed; //change whether the button is pressed
     }
 
 
@@ -38,7 +38,7 @@ class Button {
             fill(255);  // Default color
         }
         
-        stroke(0);
+        stroke(0); //set the color of the border
         rect(x,y,w,h);
         
         
@@ -49,7 +49,7 @@ class Button {
     }
 
     boolean isMouseOverButton(float xMouse, float yMouse) {
-        return xMouse >= x && xMouse <= x + w && yMouse >= y && yMouse <= y + h;
+        return xMouse >= x && xMouse <= x + w && yMouse >= y && yMouse <= y + h; //check if the mouse is over the button
 
     }
 }

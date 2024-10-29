@@ -164,7 +164,7 @@ class Background {
   }
 
 
-
+  //change the sign from open to closed
   void toggleStatus(float x, float y){
     pushMatrix();
     translate(x, y);

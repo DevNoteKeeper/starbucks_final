@@ -11,11 +11,11 @@ class OutsideScene {
 
   }
   
-  void restart(Animal ani) {
+  void restart(Animal ani) { //restart the animal to starting position
     animal = ani;
     animal.posX = 0;
     animal.posY = height-100; 
-    animal.yLimit = 750;
+    animal.yLimit = 750; //how far the animal can go up
   }
   
   void draw() {
@@ -36,7 +36,4 @@ class OutsideScene {
   void keyReleased() {
     animal.handleKeyReleased(keyCode);
   }
-  
-
-
 }
