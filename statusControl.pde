@@ -1,4 +1,6 @@
-class StatusControl{ //updates the time and checks if the store is open
+// manage all time-related feature
+// control open/close, background update
+class StatusControl{ 
     Background background;
     boolean isOpen;
     float currentTime;
